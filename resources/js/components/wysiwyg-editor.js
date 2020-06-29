@@ -418,7 +418,7 @@ class WysiwygEditor {
         this.textDirection = pageEditor.getAttribute('text-direction');
         this.isDarkMode = document.documentElement.classList.contains('dark-mode');
 
-        this.plugins = "image table textcolor paste link autolink fullscreen imagetools code customhr autosave lists codeeditor media";
+        this.plugins = "image table textcolor paste link autolink fullscreen imagetools code customhr autosave lists codeeditor media textpattern";
         this.loadPlugins();
 
         this.tinyMceConfig = this.getTinyMceConfig();
@@ -472,6 +472,22 @@ class WysiwygEditor {
             automatic_uploads: false,
             valid_children: "-div[p|h1|h2|h3|h4|h5|h6|blockquote],+div[pre],+div[img]",
             plugins: this.plugins,
+            textpattern_patterns: [
+                {start: '#', format: 'h1'},
+                {start: '##', format: 'h2'},
+                {start: '###', format: 'h3'},
+                {start: '####', format: 'h4'},
+                {start: '#####', format: 'h5'},
+                {start: '######', format: 'h6'},
+                {start: '* ', cmd: 'InsertUnorderedList'},
+                {start: '- ', cmd: 'InsertUnorderedList'},
+                {start: '1. ', cmd: 'InsertOrderedList', value: { 'list-style-type': 'decimal' }},
+                {start: '1) ', cmd: 'InsertOrderedList', value: { 'list-style-type': 'decimal' }},
+                {start: 'a. ', cmd: 'InsertOrderedList', value: { 'list-style-type': 'lower-alpha' }},
+                {start: 'a) ', cmd: 'InsertOrderedList', value: { 'list-style-type': 'lower-alpha' }},
+                {start: 'i. ', cmd: 'InsertOrderedList', value: { 'list-style-type': 'lower-roman' }},
+                {start: 'i) ', cmd: 'InsertOrderedList', value: { 'list-style-type': 'lower-roman' }}
+            ],
             imagetools_toolbar: 'imageoptions',
             toolbar: this.getToolBar(),
             content_style: `html, body, html.dark-mode {background: ${this.isDarkMode ? '#222' : '#fff'};} body {padding-left: 15px !important; padding-right: 15px !important; margin:0!important; margin-left:auto!important;margin-right:auto!important;}`,
