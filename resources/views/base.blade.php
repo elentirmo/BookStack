@@ -11,6 +11,8 @@
     <meta name="base-url" content="{{ url('/') }}">
     <meta charset="utf-8">
 
+    <link rel="icon" href="{{ url('/favicon.ico') }}" type="image/x-icon" />
+
     <!-- Styles and Fonts -->
     <link rel="stylesheet" href="{{ versioned_asset('dist/styles.css') }}">
     <link rel="stylesheet" media="print" href="{{ versioned_asset('dist/print-styles.css') }}">
