@@ -473,6 +473,13 @@ class WysiwygEditor {
             valid_children: "-div[p|h1|h2|h3|h4|h5|h6|blockquote],+div[pre],+div[img]",
             plugins: this.plugins,
             textpattern_patterns: [
+                {start: '*', end: '*', format: 'italic'},
+                {start: '**', end: '**', format: 'bold'},
+                {start: '{{', end: '}}', format: 'code'},
+                {start: '----', replacement: '<hr/>'},
+                {start: '---', replacement: '—'},
+                {start: '--', replacement: '–'},
+                {start: '```', cmd: 'codeeditor'},
                 {start: '#', format: 'h1'},
                 {start: '##', format: 'h2'},
                 {start: '###', format: 'h3'},
