@@ -475,7 +475,8 @@ class WysiwygEditor {
             textpattern_patterns: [
                 {start: '*', end: '*', format: 'italic'},
                 {start: '**', end: '**', format: 'bold'},
-                {start: '{{', end: '}}', format: 'code'},
+                {start: '***', end: '***', format: ['bold', 'italic']},
+                {start: '`', end: '`', format: 'code'},
                 {start: '----', replacement: '<hr/>'},
                 {start: '---', replacement: '—'},
                 {start: '--', replacement: '–'},
